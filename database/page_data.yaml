@@ -1,0 +1,5 @@
+login:
+  url: "http://172.21.3.20/main/user/login"
+  name: "userName"
+  password: "password"
+  denglu_btm: "/2/*[@id='root-master']/div/div[]/div/form/div[4]/div/div/div/button"
