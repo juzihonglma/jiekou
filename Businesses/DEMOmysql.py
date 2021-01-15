@@ -1,7 +1,7 @@
 import pymysql
 import os
 from configparser import ConfigParser
-from common import log
+from common.log import Log
 
 class connect:
     def __init__(self,host=None,port=0,user=None,passwd=None,db=None,charset=None,max_retries_count =None,
@@ -25,30 +25,29 @@ class connect:
             try:
                 #建立连接
                 self.conn = pymysql.Connect(host=host, port=port, user=user, passwd=passwd, db=db,charset=charset)
-                log.Log
+                Log().info('连接成功')
                 # 创建游标
                 self.cursor = self.conn.cursor()
                 con_status = False
             except:
                 conn_retries_count +=1
                 print(conn_retries_count)
-                print('连接失败')
+                Log().debug('连接失败')
             continue
+
+    def Select(self, sql):
+        # 执行查询sql
+        self.cursor.execute(sql)
+        # 获取单条数据
+        rows = self.cursor.fetchall()
+        for data in rows:
+            print(data)
+        return rows
 
     #关闭数据库
     def closeConn(self):
         self.cursor.close()
         self.conn.close()
-        print('关闭')
-
-    def Select(self,sql):
-        #执行查询sql
-        self.cursor.execute(sql)
-        #获取单条数据
-        rows = self.cursor.fetchall()
-        for data in rows:
-            print(data)
-        return rows
 
 
 if __name__ == '__main__':

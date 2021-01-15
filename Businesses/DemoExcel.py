@@ -1,15 +1,21 @@
 import openpyxl
+import os
 
 class ReadExcel:
     def __init__(self,filename,sheetname):
-        self.filename = filename
+        self.filename = os.path.abspath(os.path.join(os.getcwd(),'..','data','test.xlxs'))
         self.sheetname = sheetname
 
     def open(self):
         # 打开工作簿 openpyxl不支持 xls
-        self.wb = openpyxl.load_workbook(self.filename)
+        wb = openpyxl.load_workbook(self.filename)
         # 获取表单
-        self.sh = self.wb[self.sheetname]
+        sh = wb[self.sheetname]
+        return sh
+
+    def get_row(self):
+        global sh
+
 
     def close(self):
         self.wb.close()
@@ -53,6 +59,7 @@ class ReadExcel:
 
 if __name__ == '__main__':
     #直接读取Excel时调用ReadExcel类
-    test = ReadExcel('test.xlsx','Sheet')
-    res = test.read_excel()
-    print(res[0]["value"])
+    # test = ReadExcel('test.xlsx','Sheet')
+    # res = test.read_excel()
+    # print(res[0]["value"])
+    test = ReadExcel.read_excel('Sheet')

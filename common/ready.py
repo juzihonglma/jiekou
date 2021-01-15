@@ -30,7 +30,8 @@ class ready_work():
     def js(self,sprit):
         self.driver.execute_script(sprit)
 
-
+if __name__ == '__main__':
+    ready_work.open_url(url='172.21.3.20')
 
 # submit = driver.find_element_by_xpath("/2/*[@id='root-master']/div/div[]/div/form/div[4]/div/div/div/button");
 # driver.execute_script("arguments[0].click();", submit);
