@@ -19,7 +19,7 @@ class getdata:
         self.CheckPoint_col = config.get('excel', 'Check_Point')
         self.error_col = config.get('excel', 'error')
 
-        self.filename = os.path.join('D:\python-UI\jiekou\data','test.xlsx')
+        self.filename = os.path.join('D:\jiekou\data','test.xlsx')
         # 打开工作簿
         self.table = openpyxl.load_workbook(self.filename)
 
@@ -113,11 +113,12 @@ class getdata:
 
 
 if __name__ == '__main__':
+    getdata()
     # t = getdata().get_case_lines()
     # print(t)
 #     getdata().get_Url(2)
-    t = getdata().get_Request_Data_Type(2)
-    print(t)
+#     t = getdata().get_Request_Data_Type(2)
+#     print(t)
     # getdata().get_Method(2)
     # getdata().get_Case_id(3)
     # a= getdata().get_cell_value(row=2,col=1)

@@ -10,11 +10,9 @@ class TestApi:
         try:
             res =None
             if method == 'POST' or method == 'post':
-                res = requests.post(Url,Request_Data_Type,json.dumps(Request_Data))#因为请求传送的参数是josn格式，所以要用到json.dumps()
+                res = requests.post(Url,data=json.dumps(Request_Data),headers=Request_Data_Type)#因为请求传送的参数是josn格式，所以要用到json.dumps()
             if method == 'GET' or method == 'get':
-                res = requests.get(Url,Request_Data_Type,json.dumps(Request_Data))
-            # rep = res.json()
-            # print(rep)
+                res = requests.get(Url,data=json.dumps(Request_Data),headers=Request_Data_Type)
             return res
         except HTTPError as e:
             Log.debug('请求失败',e)
@@ -23,9 +21,9 @@ class TestApi:
         try:
             res = None
             if method == 'POST' or method == 'POST':
-                res = requests.post(Url,Request_Data,Request_Data_Type)
+                res = requests.post(Url,data=json.dumps(Request_Data),headers=Request_Data_Type)
             if method == 'GET' or method == 'get':
-                res = requests.get(Url,Request_Data,Request_Data_Type)
+                res = requests.get(Url,data=json.dumps(Request_Data),headers=Request_Data_Type)
             responese = res.json()
             return responese
             # code = responese.get("code")
@@ -37,8 +35,8 @@ class TestApi:
 
 
 
-#
-# if __name__ == '__main__':
-#     re = TestApi.test_api(Url = 'http://172.21.3.4/ngy/sysAccount/login',method='POST',
-#                           Request_Data={"accountName":"a0006","password":"JezHmIz7K2/kMGOv3geBdg==","encryptKey":"SJRmX5VQrcN+0oFB3ZcoIwBLy9pNMLThSCEBOtXUZpU="},
-#                           Request_Data_Type = {"Content-Type":"application/json,charset=utf-8"})
+
+if __name__ == '__main__':
+    re = TestApi.test_api(Url = 'http://www.nangaoyun.com/ngy/sysAccount/login',method='POST',
+                          Request_Data={"accountName":"jsng0000","password":"pQR8pjMwOsQUBPSRv8TVpg==","encryptKey":"C3B4m+iyaiE8G5RlqOrK6wBLy9pNMLThSCEBOtXUZpU="},
+                          Request_Data_Type = {'Content-Type':'application/json'})

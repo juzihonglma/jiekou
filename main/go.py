@@ -17,10 +17,10 @@ class RunTest:
             #请求参数
             url = self.get_data.get_Url(i)
             method = self.get_data.get_Method(i)
-            data_type = self.get_data.get_Request_Data_Type(i)
-            request_data = self.get_data.get_Request_Data(i)
+            data_type = eval(self.get_data.get_Request_Data_Type(i))
+            request_data = eval(self.get_data.get_Request_Data(i))
 
-            res = self.test_Api.test_api(url,method,data_type,request_data)
+            res = self.test_Api.test_api(url,method,request_data,data_type)
             rep = res.json()
             code = rep.get('code')
             print(code)
