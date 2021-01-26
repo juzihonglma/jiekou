@@ -15,3 +15,14 @@ recevier:1830817752@qq.com
 smtp:smtp.qq.com
 user:1830817752@qq.com
 password:
+
+[excel]
+Case_id:1
+API_name:2
+Url:3
+Method:4
+Request_Data_Type:5
+Request_Data:6
+Status_Code:7
+Check_Point:8
+error:9

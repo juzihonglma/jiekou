@@ -6,6 +6,7 @@ class Log:
     def __init__(self):
         #返回log文件夹路径
         self.log_path = os.path.abspath(os.path.join(os.getcwd(),'..','log'))
+        print(self.log_path)
         today = time.strftime("%Y%m%d%H%M%S",time.localtime(time.time()))
         #log日志命名
         self.logname = os.path.join(self.log_path,(today+'.log'))

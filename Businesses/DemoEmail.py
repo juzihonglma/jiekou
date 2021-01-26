@@ -6,6 +6,8 @@ from email.mime.multipart import MIMEMultipart
 import smtplib
 from common.log import Log
 
+from data.Get_data import getdata
+
 class email():
     def __init__(self,sender=None,recevier=None,smtp=None,user=None,password=None):
         self.file = os.path.abspath(os.path.join(os.getcwd(),'..','Businesses','test.xlsx'))
@@ -62,6 +64,8 @@ class email():
 
 
 if __name__ == '__main__':
-    test = email()
-    test.send_email()
+    # test = email()
+    # test.send_email()
+
+    email().test()
 
