@@ -16,6 +16,7 @@ class getdata:
         self.RequestDataType_col = config.get('excel', 'Request_Data_Type')
         self.RequestData_col = config.get('excel', 'Request_Data')
         self.StatusCode_col = config.get('excel', 'Status_Code')
+        self.token_col = config.get('excel','token')
         self.CheckPoint_col = config.get('excel', 'Check_Point')
         self.error_col = config.get('excel', 'error')
 
@@ -92,23 +93,31 @@ class getdata:
         else:
             return Request_Data
 
-    # 获取请求code
+    # 获取请求状态
     def get_Status_Code(self, row):
         col = int(self.StatusCode_col)
         Status_Code = self.get_cell_value(row,col)
         return Status_Code
 
-    # 获取请求code
+    # 获取请求token
+    def get_token(self, row):
+        col = int(self.token_col)
+        token = self.get_cell_value(row, col)
+        return token
+
+
+    # 获取请求检查点
     def get_Check_Point(self, row):
         col = int(self.CheckPoint_col)
         Check_Point = self.get_cell_value(row,col)
         return Check_Point
 
-    # 获取请求code
+    # 获取请求eroor
     def get_error(self, row):
         col = int(self.error_col)
         error = self.get_cell_value(row,col)
         return error
+
 
 
 

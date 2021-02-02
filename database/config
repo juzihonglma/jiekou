@@ -24,5 +24,6 @@ Method:4
 Request_Data_Type:5
 Request_Data:6
 Status_Code:7
-Check_Point:8
-error:9
+token:8
+Check_Point:9
+error:10
