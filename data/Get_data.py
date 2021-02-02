@@ -100,27 +100,21 @@ class getdata:
         Status_Code = self.get_cell_value(row,col)
         return Status_Code
 
-<<<<<<< HEAD
+
     # 获取请求token
     def get_token(self, row):
         col = int(self.token_col)
         token = self.get_cell_value(row, col)
         return token
 
-
-=======
->>>>>>> 93d395ba417383cee532c96160998613500f2d7d
     # 获取请求检查点
     def get_Check_Point(self, row):
         col = int(self.CheckPoint_col)
         Check_Point = self.get_cell_value(row,col)
         return Check_Point
 
-<<<<<<< HEAD
-    # 获取请求eroor
-=======
+
     # 获取请求error
->>>>>>> 93d395ba417383cee532c96160998613500f2d7d
     def get_error(self, row):
         col = int(self.error_col)
         error = self.get_cell_value(row,col)
