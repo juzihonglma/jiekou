@@ -2,12 +2,14 @@
 
 from Businesses.test_API import TestApi
 from data.Get_data import getdata
+from common.Excel import ReadExcel
 from common import HTMLTestRunner
 
 class RunTest:
     def __init__(self):
         self.test_Api = TestApi()
         self.get_data = getdata()
+        self.read_excel = ReadExcel()
 
 
     def go_run(self):
@@ -24,9 +26,14 @@ class RunTest:
             rep = res.json()
             code = rep.get('code')
             cookie = rep.get('data')
-            
-            print(cookie)
-            print(rep)
+            for cookie_value in dict(cookie).values():
+                self.read_excel.write_excel(cookie_value)
+
+
+
+
+
+
 
 if __name__ == '__main__':
     RunTest().go_run()

@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 
 import os
 import openpyxl
@@ -18,9 +19,8 @@ class getdata:
         self.StatusCode_col = config.get('excel', 'Status_Code')
         self.CheckPoint_col = config.get('excel', 'Check_Point')
         self.error_col = config.get('excel', 'error')
-
-        self.filename = os.path.join('D:\jiekou\data','test.xlsx')
-        print(self.filename)
+        #需要根据项目所在路径配置地址
+        self.filename = os.path.join('D:\python-UI\jiekou\data','test.xlsx')
         # 打开工作簿
         self.table = openpyxl.load_workbook(self.filename)
 
@@ -99,13 +99,13 @@ class getdata:
         Status_Code = self.get_cell_value(row,col)
         return Status_Code
 
-    # 获取请求code
+    # 获取请求检查点
     def get_Check_Point(self, row):
         col = int(self.CheckPoint_col)
         Check_Point = self.get_cell_value(row,col)
         return Check_Point
 
-    # 获取请求code
+    # 获取请求error
     def get_error(self, row):
         col = int(self.error_col)
         error = self.get_cell_value(row,col)
