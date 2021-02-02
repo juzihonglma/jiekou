@@ -21,7 +21,7 @@ class getdata:
         self.CheckPoint_col = config.get('excel', 'Check_Point')
         self.error_col = config.get('excel', 'error')
         #需要根据项目所在路径配置地址
-        self.filename = os.path.join('D:\python-UI\jiekou\data','test.xlsx')
+        self.filename = os.path.join('D:\jiekou\data','test.xlsx')
         # 打开工作簿
         self.table = openpyxl.load_workbook(self.filename)
 

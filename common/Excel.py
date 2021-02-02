@@ -46,9 +46,8 @@ class ReadExcel:
         # fail = Border(font=fy2)
         #信息写入
         token_rowsNum = self.get_data.get_case_lines()
-        for i in token_rowsNum+1:
-            self.workBook.cell(i,token_rowsNum).value=value
-
+        for i in range(3,token_rowsNum+1):
+            self.workBook.cell(i,self.get_data.token_col).value=value
         self.table.save(self.filename)
 
 
