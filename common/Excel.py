@@ -38,6 +38,7 @@ class ReadExcel:
     #         self.close
     #         return cases
 
+<<<<<<< HEAD
     def write_excel(self,value):
         #成功或者失败的单元格的样式
         ft1 = Font(name='微软雅黑', color='FF00FF00', size=12, b='True')#name字体名称,color颜色通常是RGB或aRGB十六进制值,b(bold):加粗
@@ -48,6 +49,16 @@ class ReadExcel:
         token_rowsNum = self.get_data.get_case_lines()
         for i in token_rowsNum+1:
             self.workBook.cell(i,token_rowsNum).value=value
+=======
+    def write_excel(self,cookie_value):
+        ft1 = Font(name='微软雅黑', color='FF00FF00', size=12, b='True')#name字体名称,color颜色通常是RGB或aRGB十六进制值,b(bold):加粗
+        fy2 = Font(name='微软雅黑', color='FFFF0000',size=12, b='True')
+        success = Border(font = ft1)
+        fail = Border(font=fy2)
+        # a1.font = success
+
+
+>>>>>>> 93d395ba417383cee532c96160998613500f2d7d
         self.table.save(self.filename)
 
 
