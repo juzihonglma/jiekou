@@ -49,14 +49,6 @@ class ReadExcel:
         for i in token_rowsNum+1:
             self.workBook.cell(i,token_rowsNum).value=value
 
-    def write_excel(self,cookie_value):
-        ft1 = Font(name='微软雅黑', color='FF00FF00', size=12, b='True')#name字体名称,color颜色通常是RGB或aRGB十六进制值,b(bold):加粗
-        fy2 = Font(name='微软雅黑', color='FFFF0000',size=12, b='True')
-        success = Border(font = ft1)
-        fail = Border(font=fy2)
-        # a1.font = success
-
-
         self.table.save(self.filename)
 
 

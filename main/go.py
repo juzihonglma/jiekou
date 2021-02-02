@@ -25,14 +25,15 @@ class RunTest:
             res = self.test_Api.test_api(url,method,request_data,data_type)
             rep = res.json()
             code = rep.get('code')
+            #获取token
             cookie = rep.get('data')
             for cookie_value in dict(cookie).values():
+                #写入excel
                 self.read_excel.write_excel(cookie_value)
-
-
-
-
-
+                #判断token是否有值
+                if cookie_value !=None:
+                    request_data = dict(request_data,cookie_value)
+                    res = self.test_Api.test_api(url, method, request_data, data_type)
 
 
 if __name__ == '__main__':
