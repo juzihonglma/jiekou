@@ -20,6 +20,7 @@ class getdata:
         self.error_col = config.get('excel', 'error')
 
         self.filename = os.path.join('D:\jiekou\data','test.xlsx')
+        print(self.filename)
         # 打开工作簿
         self.table = openpyxl.load_workbook(self.filename)
 
