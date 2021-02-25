@@ -3,6 +3,7 @@
 import os
 import openpyxl
 from configparser import ConfigParser
+from common import conf
 
 class getdata:
     def __init__(self):
@@ -21,7 +22,7 @@ class getdata:
         self.CheckPoint_col = config.get('excel', 'Check_Point')
         self.error_col = config.get('excel', 'error')
         #需要根据项目所在路径配置地址
-        self.filename = os.path.join('D:\jiekou\data','test.xlsx')
+        self.filename = os.path.join(conf.BASE_PATH,'data','test.xlsx')
         # 打开工作簿
         self.table = openpyxl.load_workbook(self.filename)
 
@@ -101,11 +102,14 @@ class getdata:
         return Status_Code
 
 
-    # 获取请求token
+    # 判断是否有token
     def get_token(self, row):
         col = int(self.token_col)
         token = self.get_cell_value(row, col)
-        return token
+        if token =='' or token ==None:
+            return None
+        else:
+            return token
 
     # 获取请求检查点
     def get_Check_Point(self, row):

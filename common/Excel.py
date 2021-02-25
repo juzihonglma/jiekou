@@ -4,7 +4,7 @@ from data.Get_data import getdata
 from common.log import Log
 from openpyxl.styles import Font,Border
 
-class ReadExcel:
+class Excel:
     def __init__(self):
         self.get_data = getdata()
 
@@ -16,27 +16,6 @@ class ReadExcel:
         #关闭工作簿
         self.close = self.table.close()
 
-    #读取表格
-    # def read_excel(self):
-    #     if self.rowNum < 1:
-    #         Log.info('行数小于1')
-    #     else:
-    #         cases = []
-    #         for i in range(1,self.rowNum):
-    #             s = {}
-    #             s['rowNum'] = i+1
-    #             Value = list(self.workBook.rows)
-    #             titles = []
-    #             for t in Value[0]:
-    #                 title = t.value
-    #                 titles.append(title)
-    #             for row in Value:
-    #                 case = []
-    #                 for r in row:
-    #                     case.append(r.value)
-    #                 cases.append(dict(zip(titles,case)))
-    #         self.close
-    #         return cases
 
     def write_excel(self,value):
         #成功或者失败的单元格的样式
@@ -58,7 +37,7 @@ if __name__ == '__main__':
     #直接读取Excel时调用ReadExcel类
     # test = ReadExcel()
     # test.read_excel()
-    ReadExcel().write_excel()
+    Excel().write_excel()
     # test.write_excel()
     # test.get_cell_value(2,5)
     # # res = test.read_excel()

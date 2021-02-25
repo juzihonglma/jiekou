@@ -27,3 +27,8 @@ Status_Code:7
 token:8
 Check_Point:9
 error:10
+
+[pytest]
+addopts = -s -v --html=report/report.html --alluredir ./report/result
+testpaths =
+python_file =

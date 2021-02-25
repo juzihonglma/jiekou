@@ -1,16 +1,15 @@
-# -*- coding: UTF-8 -*-
-
+# -*- coding=utf-8 -*-
+import allure
 from Businesses.test_API import TestApi
 from data.Get_data import getdata
-from common.Excel import ReadExcel
 
-class RunTest:
+
+class Login_GetToken:
     def __init__(self):
         self.test_Api = TestApi()
         self.get_data = getdata()
-        self.read_excel = ReadExcel()
 
-
+    @allure.step("系统登入")
     def login_token(self):
         #获取行数
         rows_count = self.get_data.get_case_lines()
@@ -27,14 +26,20 @@ class RunTest:
             #获取token
             token = rep.get('data').get('token')
             return token
-            # self.read_excel.write_excel(token)
-            #     #判断token是否有值
-            # token_value = self.get_data.get_token(i+1)
-            # if token_value !=None:
-            #     request_data = dict(request_data,token_value)
-            #     print(request_data)
-            #     res = self.test_Api.test_api(url, method, request_data, data_type)
 
 
 if __name__ == '__main__':
-    RunTest().login_token()
+    Login_GetToken().login_token()
+
+
+
+
+
+
+
+
+
+
+
+
+
