@@ -14,6 +14,7 @@ class RunTest:
     def login_token(self):
         #获取行数
         rows_count = self.get_data.get_case_lines()
+        print(rows_count)
         for i in range(2,rows_count):
             #请求参数
             url = self.get_data.get_Url(i)
