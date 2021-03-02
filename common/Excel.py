@@ -33,20 +33,15 @@ class ReadExcel:
         #token信息写入
         token_value = self.token.login_token()
         token_rowsNum = self.get_data.get_case_lines()
-        if self.get_data.get_token() == 0:
+        if self.get_data.get_token() == None:
             for i in range(3,token_rowsNum+1):
                 self.workBook.cell(row=i,column=self.get_data.token_col).value = token_value
                 self.table.save(self.filename)
 
 
-
-
-
 if __name__ == '__main__':
     #直接读取Excel时调用ReadExcel类
-    # test = ReadExcel()
-    # test.read_excel()
-    # ReadExcel().write_excel()
+    ReadExcel().write_excel()
     # test.write_excel()
     # test.get_cell_value(2,5)
     # # res = test.read_excel()

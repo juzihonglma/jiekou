@@ -12,5 +12,5 @@ allure_html_path = os.path.join(BASE_PATH,'report','report.html')
 ALLURE_COMMAND = 'allure generate {} -o {} --clean'.format(reslut_path,allure_html_path)
 
 if __name__ == '__main__':
-    print(allure_html_path)
+    print(BASE_PATH)
 
