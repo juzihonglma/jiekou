@@ -16,9 +16,9 @@ class getdata:
         self.Url_col = config.get('excel', 'Url')
         self.Method_col = config.get('excel', 'Method')
         self.RequestDataType_col = config.get('excel', 'Request_Data_Type')
+        self.Token_col = config.get('excel','Token')
         self.RequestData_col = config.get('excel', 'Request_Data')
         self.StatusCode_col = config.get('excel', 'Status_Code')
-        self.token_col = config.get('excel','token')
         self.CheckPoint_col = config.get('excel', 'Check_Point')
         self.error_col = config.get('excel', 'error')
         #需要根据项目所在路径配置地址
@@ -33,6 +33,11 @@ class getdata:
         sheets = self.table.get_sheet_names()
         self.wk = sheets[0]
         self.workBook = self.table[self.wk]
+
+    #获取页名
+    def get_sheet(sheetname):
+        global workbook
+        return workbook.sheet_by_name(sheetname)
 
     #获取总行数
     def get_case_lines(self):
@@ -86,6 +91,15 @@ class getdata:
         Request_Data_Type= self.get_cell_value(row,col)
         return Request_Data_Type
 
+    # 判断是否有token
+    def get_token(self, row):
+        col = int(self.Token_col)
+        token = self.get_cell_value(row, col)
+        if token == '' or token == None:
+            return None
+        else:
+            return token
+
     # 获取单元格请求参数
     def get_Request_Data(self,row):
         col = int(self.RequestData_col)
@@ -101,22 +115,11 @@ class getdata:
         Status_Code = self.get_cell_value(row,col)
         return Status_Code
 
-
-    # 判断是否有token
-    def get_token(self, row):
-        col = int(self.token_col)
-        token = self.get_cell_value(row, col)
-        if token =='' or token ==None:
-            return None
-        else:
-            return token
-
     # 获取请求检查点
     def get_Check_Point(self, row):
         col = int(self.CheckPoint_col)
         Check_Point = self.get_cell_value(row,col)
         return Check_Point
-
 
     # 获取请求error
     def get_error(self, row):
@@ -125,18 +128,10 @@ class getdata:
         return error
 
 
-
-
-if __name__ == '__main__':
-    getdata()
-    # t = getdata().get_case_lines()
-    # print(t)
+# if __name__ == '__main__':
+#     t = getdata().get_token(2)
+#     print(t)
 #     getdata().get_Url(2)
 #     t = getdata().get_Request_Data_Type(2)
 #     print(t)
-    # getdata().get_Method(2)
-    # getdata().get_Case_id(3)
-    # a= getdata().get_cell_value(row=2,col=1)
-    # getdata().get_case_col(2)
-    # getdata().get_row_data(1)
-    # getdata().get_row_data(3)
+
